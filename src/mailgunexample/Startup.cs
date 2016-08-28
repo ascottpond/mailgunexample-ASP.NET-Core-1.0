@@ -14,7 +14,16 @@ using mailgunexample.Models;
 using mailgunexample.Services;
 
 namespace mailgunexample
-{
+{   
+    // Step 6
+    public class EmailSettings
+    {
+        public string ApiKey { get; set; }
+        public string BaseUri { get; set; }
+        public string RequestUri { get; set; }
+        public string From { get; set; }
+    }
+    // Step 7 populate user secrets or some other alt configuration method.
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -50,6 +59,9 @@ namespace mailgunexample
             services.AddMvc();
 
             // Add application services.
+            // Step 7
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
         }

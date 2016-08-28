@@ -42,7 +42,10 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.Net.Http": "2.2.29",
+    "System.Net.Http": "4.1.0",
+    "System.Text.Encoding": "4.0.11"
   },
 
   "tools": {
